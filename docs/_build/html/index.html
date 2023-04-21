@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to toolShelf’s documentation! &mdash; toolShelf 0.1.3 documentation</title>
+  <title>toolShelf documentation &mdash; toolShelf 0.1.3 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -40,8 +40,13 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Welcome to toolShelf’s documentation!</a></li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li><a class="reference internal" href="#">toolShelf documentation</a></li>
+<li><a class="reference internal" href="#classes">Classes</a><ul>
+<li><a class="reference internal" href="#granule"><code class="docutils literal notranslate"><span class="pre">granule</span></code></a></li>
+<li><a class="reference internal" href="#gt"><code class="docutils literal notranslate"><span class="pre">gt</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
 </ul>
 </div>
         </div>
@@ -58,7 +63,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Welcome to toolShelf’s documentation!</li>
+      <li class="breadcrumb-item active">toolShelf documentation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -68,18 +73,87 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="welcome-to-toolshelf-s-documentation">
-<h1>Welcome to toolShelf’s documentation!<a class="headerlink" href="#welcome-to-toolshelf-s-documentation" title="Permalink to this heading"></a></h1>
+  <section id="toolshelf-documentation">
+<h1>toolShelf documentation<a class="headerlink" href="#toolshelf-documentation" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 </div>
-</section>
-<section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h1>
+<hr class="docutils" />
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
+</section>
+<section id="classes">
+<h1>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="granule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">granule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hFile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">short_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#granule" title="Permalink to this definition"></a></dt>
+<dd><p>This class will unpack the data from a downloaded granule in .h5 format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hFile</strong> (<em>string</em>) – path to granule (file extension ‘.h5’)</p></li>
+<li><p><strong>short_name</strong> (<em>string</em>) – data product short name (e.g., ‘ATL03’)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Variables<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>product</strong> – data product short name</p></li>
+<li><p><strong>tracks</strong> – available ground tracks (‘gt1l’, ‘gt1r’, ‘gt2l’, ‘gt2r’, ‘gt3l’, ‘gt3r’)</p></li>
+<li><p><strong>alt</strong> – elevation data (either profile (‘ATL06’) or photon cloud (‘ATL03’))</p></li>
+<li><p><strong>lat</strong> – data point latitudes</p></li>
+<li><p><strong>lon</strong> – data point longitudes</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Versionadded<span class="colon">:</span></dt>
+<dd class="field-odd"><p>0.1.0</p>
+</dd>
+<dt class="field-even">Versionchanged<span class="colon">:</span></dt>
+<dd class="field-even"><p>0.1.0</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gt">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gt" title="Permalink to this definition"></a></dt>
+<dd><p>Ground track class. Inverted class structure in which data are organized according to their ground track. A later version will likely pick one of these organizations and stick with it.</p>
+<p>Identical subclasses are initialized by granule for all ground tracks (‘gt[1|2|3][l|r]’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alt</strong> (<em>list</em>) – elevation data</p></li>
+<li><p><strong>lat</strong> (<em>list</em>) – data point latitudes</p></li>
+<li><p><strong>lon</strong> (<em>list</em>) – data point longitudes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Versionadded<span class="colon">:</span></dt>
+<dd class="field-even"><p>0.1.0</p>
+</dd>
+<dt class="field-odd">Versionchanged<span class="colon">:</span></dt>
+<dd class="field-odd"><p>0.1.0</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">getPolygon(pfile):</span></span></dt>
+<dd><p>Download polygon text file as an array. File must be formatted as a comma separated list of lon, lat coordinates specified in counter clock-wise order with matching first and last lon/lat pairs. (e.g., ‘lon1, lat1, lon2, lat2, …’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>L x 2 array of lat lon coordinates</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
