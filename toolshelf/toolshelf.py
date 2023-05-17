@@ -7,6 +7,8 @@ import pprint
 import re
 import time
 import h5py as h
+import ee
+import folium
 
 class gt:
     def __init__(self, alt, lon, lat):

@@ -2,14 +2,16 @@ from setuptools import setup, find_packages
 
 setup(
 	name='toolshelf', 
-	version='0.1.3', 
+	version='0.1.7', 
 	description='ICESat-2 data analysis tools',
 	author='chancelor roberts',
 	author_email='ccroberts@ucsd.edu',
 	install_requires=[
 		'numpy',
 		'requests',
-		'h5py'
+		'h5py',
+		'earthengine-api',
+		'folium',
 		],
 	packages=['toolshelf'],
 	zip_safe=False,
